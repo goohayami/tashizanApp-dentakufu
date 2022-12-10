@@ -6,7 +6,7 @@ const leftNum = document.querySelector(".num1");
 // たしざん右の数字
 const rightNum = document.querySelector(".num3");
 // 答え
-const ansContainer = document.querySelector(".ans");
+const ansContainer = document.querySelector(".num5");
 // タイマーの初期化
 const time = document.getElementById("timer");
 
@@ -45,14 +45,14 @@ const judge = () => {
 };
 
 // OKボタンクリックで判定 //
-btn.addEventListener("click", () => {
-  judge();
-  // trueなら実行で一回だけタイマーを起動
-  if (startTimer !== true) {
-    timer1 = setInterval(cntDown, 1000);
-    startTimer = true;
-  }
-});
+// btn.addEventListener("click", () => {
+//   judge();
+//   // trueなら実行で一回だけタイマーを起動
+//   if (startTimer !== true) {
+//     timer1 = setInterval(cntDown, 1000);
+//     startTimer = true;
+//   }
+// });
 
 // エンターキーで判定 //
 window.document.onkeydown = function (event) {

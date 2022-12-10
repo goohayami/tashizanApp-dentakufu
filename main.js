@@ -7,9 +7,9 @@ const leftNum = document.querySelector(".num1");
 const rightNum = document.querySelector(".num3");
 // 答え
 const ansContainer = document.querySelector(".ans");
-// タイマーの表示場所
+// タイマーの初期化
 const time = document.getElementById("timer");
-// カウントの初期化
+
 let collect = 0;
 
 // タイマー起動するための設定 ///

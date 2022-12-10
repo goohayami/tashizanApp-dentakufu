@@ -44,7 +44,7 @@ const judge = () => {
   }
 };
 
-// ボタンクリックで判定 //
+// OKボタンクリックで判定 //
 btn.addEventListener("click", () => {
   judge();
   // trueなら実行で一回だけタイマーを起動
@@ -140,7 +140,7 @@ zeroNum();
 // ACのボタン作成
 const zeroAc = () => {
   const a = document.createElement("div");
-  a.textContent = "AC";
+  a.textContent = "ENTER/AC";
   a.classList.add("ac");
   num4.appendChild(a);
 };
@@ -150,9 +150,15 @@ zeroAc();
 ansArray = [];
 document.querySelector(".num-container").addEventListener("click", (e) => {
   // ACボタンを押した時の処理
-  if (e.target.textContent === "AC") {
-    ansArray.splice(0);
-    ansContainer.textContent = "";
+  if (e.target.textContent === "ENTER/AC") {
+    judge();
+    // trueなら実行で一回だけタイマーを起動
+    if (startTimer !== true) {
+      timer1 = setInterval(cntDown, 1000);
+      startTimer = true;
+    }
+    // ansArray.splice(0);
+    // ansContainer.textContent = "";
     // それ以外なら
   } else {
     const et = e.target.textContent;

@@ -1,9 +1,15 @@
 // 要素取得 //
+// okボタン
 const btn = document.getElementById("btn");
-const text = document.querySelector(".input");
+// たしざん左の数字
 const leftNum = document.querySelector(".num1");
+// たしざん右の数字
 const rightNum = document.querySelector(".num3");
+// 答え
+const ansContainer = document.querySelector(".ans");
+// タイマーの表示場所
 const time = document.getElementById("timer");
+// カウントの初期化
 let collect = 0;
 
 // タイマー起動するための設定 ///
@@ -20,17 +26,21 @@ aa();
 
 // 正誤判定処理 //
 const judge = () => {
+  const k = Number(ansContainer.textContent);
   const ans = Number(leftNum.textContent) + Number(rightNum.textContent);
-  if (Number(text.value) === ans) {
+  console.log(k);
+  console.log(ans);
+  if (ans === k) {
     collect++;
     let msg = `正解数は ${collect}です`;
     document.querySelector(".count").textContent = msg;
     console.log(collect);
-    text.value = "";
+    ansContainer.textContent = "";
+    ansArray.splice(0);
     aa();
-  } else if (Number(text.value) !== ans) {
-    // alert("残念もういちど");
-    text.value = "";
+  } else if (ans !== k) {
+    ansContainer.textContent = "";
+    ansArray.splice(0);
   }
 };
 
@@ -72,7 +82,7 @@ function cntDown() {
     clearInterval(timer1);
     startTime.textContent = "おわりだよ";
     // インプットテキストボックス無効
-    text.disabled = true;
+    // text.disabled = true;
     // 背景変更
     document.body.style.backgroundColor = "#202020";
     // フォントカラー変更
@@ -80,3 +90,74 @@ function cntDown() {
   }
   time.textContent = cnt;
 }
+
+// 電卓風　数字ボタン UI //
+
+const again = document.getElementById("againeBtn");
+const num1 = document.querySelector(".one-three");
+const num2 = document.querySelector(".fuor-six");
+const num3 = document.querySelector(".seven-nine");
+const num4 = document.querySelector(".zero-ac");
+const numArray1 = [1, 2, 3];
+const numArray2 = [4, 5, 6];
+const numArray3 = [7, 8, 9];
+const numArray4 = [0, "AC"];
+
+for (let i = 0; i < numArray1.length; i++) {
+  const a = document.createElement("div");
+  a.classList.add(numArray1[i]);
+  a.classList.add("numbers");
+  a.textContent = numArray1[i];
+  num1.appendChild(a);
+}
+
+for (let i = 0; i < numArray2.length; i++) {
+  const a = document.createElement("div");
+  a.classList.add(numArray2[i]);
+  a.classList.add("numbers");
+  a.textContent = numArray2[i];
+  num2.appendChild(a);
+}
+
+for (let i = 0; i < numArray3.length; i++) {
+  const a = document.createElement("div");
+  a.classList.add(numArray3[i]);
+  a.classList.add("numbers");
+  a.textContent = numArray3[i];
+  num3.appendChild(a);
+}
+
+// 0のボタン作成
+const zeroNum = () => {
+  const a = document.createElement("div");
+  a.textContent = 0;
+  a.classList.add("numbers");
+  a.classList.add("0");
+  num4.appendChild(a);
+};
+zeroNum();
+
+// ACのボタン作成
+const zeroAc = () => {
+  const a = document.createElement("div");
+  a.textContent = "AC";
+  a.classList.add("ac");
+  num4.appendChild(a);
+};
+zeroAc();
+
+// クリックイベント //
+ansArray = [];
+document.querySelector(".num-container").addEventListener("click", (e) => {
+  // ACボタンを押した時の処理
+  if (e.target.textContent === "AC") {
+    ansArray.splice(0);
+    ansContainer.textContent = "";
+    // それ以外なら
+  } else {
+    const et = e.target.textContent;
+    ansArray.push(e.target.textContent);
+    const joinNum = ansArray.join("");
+    ansContainer.textContent = joinNum;
+  }
+});

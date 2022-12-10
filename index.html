@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>計算アプリ　サンプル</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <h3>たしざん　１０秒チャレンジ</h3>
+    </header>
+
+    <div class="question-container">
+      <div class="num1"></div>
+      <div class="num2">+</div>
+      <div class="num3"></div>
+    </div>
+    <hr />
+    <div class="main-container">
+      <div class="start">のこり時間</div>
+      <div id="timer">-----</div>
+    </div>
+    <hr />
+
+    <div class="answer-container">
+      <input class="input" type="text" style="height: 30px; width: 50px" />
+      <button id="btn">入力</button>
+    </div>
+    <hr />
+
+    <div class="count"></div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

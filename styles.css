@@ -13,7 +13,8 @@ header {
   height: 30px;
   text-align: center;
   justify-content: center;
-  background-color: blue;
+  background-color: rgb(13, 53, 12);
+  color: whitesmoke;
 }
 .super-container {
   font-size: 3rem;

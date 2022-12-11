@@ -44,16 +44,6 @@ const judge = () => {
   }
 };
 
-// OKボタンクリックで判定 //
-// btn.addEventListener("click", () => {
-//   judge();
-//   // trueなら実行で一回だけタイマーを起動
-//   if (startTimer !== true) {
-//     timer1 = setInterval(cntDown, 1000);
-//     startTimer = true;
-//   }
-// });
-
 // エンターキーで判定 //
 window.document.onkeydown = function (event) {
   if (event.key === "Enter") {
@@ -67,7 +57,7 @@ window.document.onkeydown = function (event) {
 };
 
 // ここからタイマー設定 //
-const startBtn = document.getElementById("start");
+// const startBtn = document.getElementById("start");
 const startTime = document.querySelector(".start");
 
 let timer1 = null;
@@ -80,9 +70,7 @@ function cntDown() {
     // カウントが0になった時の処理
   } else if (cnt === 0) {
     clearInterval(timer1);
-    startTime.textContent = "おわりだよ";
-    // インプットテキストボックス無効
-    // text.disabled = true;
+    startTime.textContent = "Time Over!";
     // 背景変更
     document.body.style.backgroundColor = "#202020";
     // フォントカラー変更

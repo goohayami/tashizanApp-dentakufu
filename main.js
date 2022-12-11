@@ -7,11 +7,10 @@ const leftNum = document.querySelector(".num1");
 const rightNum = document.querySelector(".num3");
 // 答え
 const ansContainer = document.querySelector(".num5");
-// タイマーの初期化
+// タイマー表示
 const time = document.getElementById("timer");
-
+// タイマーの初期化
 let collect = 0;
-
 // タイマー起動するための設定 ///
 let startTimer;
 
@@ -69,8 +68,12 @@ function cntDown() {
     clearInterval(timer1);
     // カウントが0になった時の処理
   } else if (cnt === 0) {
+    document.querySelector(".num-container").addEventListener("click", () => {
+      alert("時間切れです～");
+      window.location.reload();
+    });
     clearInterval(timer1);
-    startTime.textContent = "Time Over!";
+    document.querySelector(".question-container").textContent = "Game Over";
     // 背景変更
     document.body.style.backgroundColor = "#202020";
     // フォントカラー変更

@@ -80,3 +80,6 @@ header {
   display: flex;
   margin-left: 2rem;
 }
+.over {
+  pointer-events: none;
+}
